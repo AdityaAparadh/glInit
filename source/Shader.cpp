@@ -79,3 +79,11 @@ void Shader::useProgram(){
 Shader::~Shader(){
     glDeleteShader(shaderID);
 }
+
+void Shader::useUniform4f(std::string uniform, float f1 = 0, float f2 = 0, float f3 = 0, float f4 = 0) {
+
+    GLuint uniformlocation = glGetUniformLocation(shaderID,uniform.c_str());
+    GLCall( glUniform4f(uniformlocation,f1,f2,f3,f4) );
+
+}
+

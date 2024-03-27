@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.0.0)
+cmake_minimum_required(VERSION 2.6)
 
 project( Graphics )
 
@@ -7,16 +7,19 @@ set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 
 add_subdirectory(external/glfw/)
+
 add_library(GLAD STATIC
     external/glad/src/glad.c
 )
 
 find_package(OpenGL REQUIRED)
+find_package(glm REQUIRED)
 
 include_directories(external/glfw/include
-                    external/glad/include)
+external/glad/include
+)
 
-add_executable( 
+add_executable(
     Graphics
     main.cpp
     source/renderer.cpp
@@ -28,6 +31,8 @@ add_executable(
     source/VertexArray.cpp
     source/Shader.cpp
     )
+    target_include_directories(Graphics PRIVATE external/glm)
+
 
 target_link_libraries(  Graphics
                         glfw
