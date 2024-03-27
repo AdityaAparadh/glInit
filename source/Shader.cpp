@@ -87,3 +87,7 @@ void Shader::useUniform4f(std::string uniform, float f1 = 0, float f2 = 0, float
 
 }
 
+void Shader::useUniform4fv(std::string uniform, GLsizei size, const GLfloat *value) {
+    GLuint uniformlocation = glGetUniformLocation(shaderID,uniform.c_str());
+    GLCall( glUniformMatrix4fv(uniformlocation,size,GL_FALSE,value) );
+}

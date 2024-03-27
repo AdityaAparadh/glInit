@@ -6,7 +6,7 @@
 
 #define OPENGL_INIT_BOILERPLATE \
     glfwInit(); \
-    GLFWwindow* mainWindow = glfwCreateWindow(800, 800, "Here we go again", NULL, NULL); \
+    GLFWwindow* mainWindow = glfwCreateWindow(800, 800, "PROGRAM", NULL, NULL); \
     if (mainWindow == NULL) { \
         std::cout << "Failed to create a Window" << std::endl; \
     } \

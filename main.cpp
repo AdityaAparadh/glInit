@@ -45,16 +45,30 @@ int main()
     Texture t("../textures/block.png", 4);
 
 
-    glm::vec4 vec(1.0f, 0.0f, 0.0f, 1.0f);
+    // glm::vec4 vec(1.0f,0.0f,0.0f,1.0f);
+    // glm::mat4 matrix(1.0f);
+    // matrix = glm::translate(matrix, glm::vec3(1.0,1.0,0.0f)); // This creates a transformation Matrix, basically using the translation vector
+    // vec = matrix * vec;
+    // std::cout << vec.x << " " << vec.y << " " << vec.z ;
+
     glm::mat4 trans = glm::mat4(1.0f);
-    trans = glm::translate(trans, glm::vec3(1.0f, 1.0f, 0.0f));
-    vec = trans * vec;
-    std::cout << vec.x << vec.y << vec.z << std::endl;
+    trans = glm::scale(trans, glm::vec3(0.5 ,0.5,0.5));
+    // trans = glm::scale(trans, glm::vec3(1.5 ,1.5,1.5));
+
+
+
 
    while (!glfwWindowShouldClose(mainWindow))
     {
         processInput(mainWindow);
-        GLCall(glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, nullptr));
+        glClear(GL_COLOR_BUFFER_BIT);
+
+       trans = glm::rotate(trans, 0.005f, glm::vec3(0.0,0.0,1.0) );
+       s.useUniform4fv("transform",1,glm::value_ptr(trans));
+
+
+
+       GLCall(glDrawElements(GL_TRIANGLES, 12, GL_UNSIGNED_INT, nullptr));
         glfwPollEvents();
         glfwSwapBuffers(mainWindow);
     }
