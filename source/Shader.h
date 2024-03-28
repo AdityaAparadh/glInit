@@ -13,9 +13,11 @@ private:
 
 public:
 
-Shader(std::string vertexShaderPath, std::string fragmentShaderPath);
-~Shader();
-void useProgram();
-void useUniform4f(std::string uniform, float f1, float f2, float f3, float f4);
-    void useUniform4fv(std::string uniform,GLsizei size,const GLfloat* value);
+    Shader(std::string vertexShaderPath, std::string fragmentShaderPath);
+    ~Shader();
+    void useProgram();
+    void useUniform4f(std::string uniform, float f1, float f2, float f3, float f4);
+
+    void useUniformMatrix4fv(std::string uniform,GLsizei count,const GLfloat* value);
+
 };

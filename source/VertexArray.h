@@ -16,6 +16,6 @@ public:
     VertexArray();
     ~VertexArray();
 
-    void AddBuffer( VertexBuffer& buffer, VertexBufferLayout& layout, IndexBuffer& iBuffer  );
+    void AddBuffer( VertexBuffer& buffer, VertexBufferLayout& layout  );
 
 };

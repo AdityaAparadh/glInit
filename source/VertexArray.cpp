@@ -7,11 +7,9 @@ VertexArray::VertexArray(){
     GLCall(glBindVertexArray(VertexArrayID));
 }
 
-void VertexArray::AddBuffer( VertexBuffer& buffer, VertexBufferLayout& layout, IndexBuffer& iBuffer  ){
+void VertexArray::AddBuffer( VertexBuffer& buffer, VertexBufferLayout& layout  ){
 
     buffer.Bind();
-    iBuffer.Bind();
-
     for ( int i = 0 ; i < layout.Elements.size() ; i++ ){
         VertexBufferElement element = layout.Elements[i];
         GLCall( glVertexAttribPointer(i,element.count,element.type,element.normalized,layout.singleSize,(void*)((offset))));
