@@ -13,7 +13,6 @@ add_library(GLAD STATIC
 )
 
 find_package(OpenGL REQUIRED)
-find_package(glm REQUIRED)
 
 include_directories(external/glfw/include
 external/glad/include
