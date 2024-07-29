@@ -30,4 +30,4 @@ cmake ..
 cmake --build .
 ```
 
-This will build the project with the defualt configuration, and create a ./Graphics executable binary file in the build directory.
+This will build the project with the defualt configuration, and create a `Graphics` executable binary file in the build directory.
